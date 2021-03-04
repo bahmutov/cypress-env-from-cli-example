@@ -47,3 +47,14 @@ To debug
 ```
 $ DEBUG=cypress:server:args npx cypress open --env person='{ "name": {}, "age": 18 }'
 ```
+
+Opened issue [#15323](https://github.com/cypress-io/cypress/issues/15323)
+
+## Workaround
+
+Pass the stringified JSON via another variable. It will be parsed properly
+
+```
+$ CYPRESS_person='{ "name": { "first": "Joe", "last": "Smith" }, "age": 18 }' npx cypress open
+plugins file has the config.env { person: { name: { first: 'Joe', last: 'Smith' }, age: 18 } }
+```
